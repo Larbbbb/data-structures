@@ -17,20 +17,19 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
 
-  var containsOrNah = false;
-
   var recurse = function (input, target) {
     if (input.value === target) {
-      containsOrNah = true;
+      return true;
     } else {
       for (var i = 0; i < input.children.length; i++) {
-        recurse(input.children[i], target);
+        if (recurse(input.children[i], target)) {
+          return true;
+        }
       }
     }
-    return containsOrNah;
   };
 
-  return recurse(this, target);
+  return recurse(this, target) || false;
 };
 
 
