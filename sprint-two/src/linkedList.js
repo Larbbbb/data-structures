@@ -20,7 +20,7 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    var recurse = function (currentNode, target) {
+    var recurse = function(currentNode, target) {
       if (currentNode.value === target) {
         return true;
       } else {
