@@ -50,4 +50,11 @@ describe('tree', function() {
     tree.deleteChild(1);
     expect(tree.contains(8)).to.equal(false);
   });
+
+  it('should correctly add a parent property', function() {
+    tree.addChild(5);
+    expect(tree.children[0].parent).to.equal(tree);
+  });
+
+
 });
