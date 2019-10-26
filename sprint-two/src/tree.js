@@ -26,9 +26,19 @@ treeMethods.contains = function(target) {
       }
     }
   }
-  
+
   return false;
 
+};
+
+treeMethods.deleteChild = function(childIndex) {
+  this.children = _.filter(this.children, function(item, index, collection) {
+    if (index !== childIndex) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 };
 
 
