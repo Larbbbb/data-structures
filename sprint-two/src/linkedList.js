@@ -14,24 +14,29 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    var returnVal = list.head.value;
-    list.head = list.head.next;
-    return returnVal;
+    if (list.head !== null) {
+      var returnVal = list.head.value;
+      list.head = list.head.next;
+      return returnVal;
+    }
   };
 
   list.contains = function(target) {
-    var recurse = function(currentNode, target) {
-      if (currentNode.value === target) {
-        return true;
-      } else {
-        if (currentNode.next === null) {
-          return false;
+    if (list.head !== null) {
+      var recurse = function(currentNode, target) {
+        if (currentNode.value === target) {
+          return true;
         } else {
-          return recurse(currentNode.next, target);
+          if (currentNode.next === null) {
+            return false;
+          } else {
+            return recurse(currentNode.next, target);
+          }
         }
-      }
-    };
-    return recurse(list.head, target);
+      };
+      return recurse(list.head, target);
+    }
+    return false;
   };
 
   return list;
