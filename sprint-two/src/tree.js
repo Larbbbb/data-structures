@@ -4,7 +4,7 @@ var Tree = function(value) {
 
   _.extend(newTree, treeMethods);
 
-  newTree.children = [];  // fix me
+  newTree.children = [];
 
   return newTree;
 };
